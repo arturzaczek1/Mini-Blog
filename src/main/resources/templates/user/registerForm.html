@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login Form</title>
+    <meta name="description" content="Register Form">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" th:href="@{/style.css}">
+
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+
+<body>
+<h3>please fill up the form</h3>
+<div class="container-fluid no-gutters">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mt-3">
+            <form method="post" th:action="@{/registerUser}" th:object="${userRegisterForm}">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                           placeholder="Enter email" th:field="*{email}" th:errorClass="error">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
+                    </small>
+                    <span class="error" th:errors="*{email}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Name</label>
+                    <input type="firstName" name="firstName" class="form-control" id="firstName" placeholder="Name"
+                           th:field="*{firstName}" th:errorClass="error">
+                    <span class="error" th:errors="*{firstName}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="lastName" name="lastName" class="form-control" id="lastName"
+                           placeholder="Last Name"
+                           th:field="*{lastName}" th:errorClass="error">
+                    <span class="error" th:errors="*{lastName}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password"
+                           th:field="*{password}" th:errorClass="error">
+                    <span class="error" th:errors="*{password}"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-end mr-2">
+        <div class="col-xs-12">
+            <form method="get" th:action="@{/index}">
+                <br>
+                <input class="btn btn-primary btn-sm" type="submit" value="Go back to main page">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

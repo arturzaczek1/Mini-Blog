@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: azure;
+    width: 100%;
+    text-align: center;
+}
+
+span.error {
+    color: #ff5347;
+}
+
+input.error {
+    border: 2px solid #ff5347;
+}
+
