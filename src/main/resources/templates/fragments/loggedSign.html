@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>logged sign</title>
+
+</head>
+<body>
+    <th:block th:fragment="sign">
+        <p>Logged as:</p>
+        <p th:if="${@userContextService.getLoggedAs()}" th:text="${@userContextService.getLoggedAs()}"></p>
+    </th:block>
+
+</body>
+</html>

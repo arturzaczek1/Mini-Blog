@@ -1,6 +1,7 @@
 package pl.arturzaczek.exercise34.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -36,7 +37,7 @@ public class User extends BaseEntity {
         roleSet.add(role);
     }
 
-    private User (){
+    public User (){
         System.out.println("new user created");
     }
 }

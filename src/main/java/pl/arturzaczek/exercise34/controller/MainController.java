@@ -17,7 +17,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/goToLoginForm")
+    @GetMapping("/user/login")
     public String goToLoginForm(Model model) {
         model.addAttribute("userLoginForm", new UserLoginForm());
         return "user/loginForm";

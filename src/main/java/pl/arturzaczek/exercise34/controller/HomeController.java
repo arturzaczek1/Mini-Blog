@@ -7,7 +7,7 @@ import pl.arturzaczek.exercise34.form.PostNewForm;
 
 @Controller
 public class HomeController {
-    @GetMapping ("/addNewPost")
+    @GetMapping ("/post/add")
     public String getAddNewPostForm (Model model){
         model.addAttribute("newPostForm", new PostNewForm());
         return "post/newPost";

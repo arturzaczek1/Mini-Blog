@@ -13,28 +13,26 @@
 
 <body>
 <h1>Login Form</h1>
+<th:block th:replace="~{fragments/loggedSign :: sign}"></th:block>
 <div class="container-fluid no-gutters">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4 mt-3">
             <p>login form here</p>
-            <form method="post" th:action="@{/loginUser}" th:object="${userLoginForm}">
+            <form method="post" th:action="@{/login-post-by-spring}">
                 <div class="form-group">
                     <label for="email" class="mt-1">eMail</label>
-                    <input type="email" name="email" class="form-control error" id="email" placeholder="eMail"
-                           th:field="*{email}" th:errorClass="error">
-                    <span class="error" th:errors="*{email}"></span>
+                    <input type="email" name="email" class="form-control error" id="email" placeholder="eMail">
                 </div>
                 <div class="form-group">
                     <label for="password" class="mt-1">Password</label>
                     <input type="password" name="password" class="form-control error" id="password"
-                           placeholder="password"
-                           th:field="*{password}" th:errorClass="error">
-                    <span class="error" th:errors="*{password}"></span>
+                           placeholder="password">
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Log in</button>
             </form>
         </div>
     </div>
+
     <div class="row justify-content-end">
         <div class="col-md-2 mt-3">
             <form method="get" th:action="@{/index}">

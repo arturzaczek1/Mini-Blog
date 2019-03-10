@@ -13,11 +13,13 @@
 
 <body>
 <h1>Main Page</h1>
+<th:block th:replace="~{fragments/loggedSign :: sign}"></th:block>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="buttons">
-                <form method="get" th:action="@{/goToLoginForm}">
+                <form method="get" th:action="@{/user/login}">
                     <input class="btn btn-primary btn-lg mt-5" type="submit" value="Log in">
                 </form>
                 <form method="get" th:action="@{/goToRegisterForm}">
