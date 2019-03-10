@@ -7,7 +7,7 @@ import pl.arturzaczek.exercise34.form.UserLoginForm;
 import pl.arturzaczek.exercise34.form.UserRegisterForm;
 import pl.arturzaczek.exercise34.repository.UserRepository;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -21,14 +21,14 @@ public class UserService {
     }
 
     public void registerUser(UserRegisterForm userRegisterForm){
-        User user = new User();
-        user.setEmail(userRegisterForm.getEmail());
-        user.setFirstName(userRegisterForm.getFirstName());
-        user.setLastName(userRegisterForm.getLastName());
-        user.setPasswordHash(userRegisterForm.getPassword());
-        user.setAddedDate(LocalDate.now());
-
-        userRepository.save(user);
+//        User user = new User();
+//        user.setEmail(userRegisterForm.getEmail());
+//        user.setFirstName(userRegisterForm.getFirstName());
+//        user.setLastName(userRegisterForm.getLastName());
+//        user.setPasswordHash(userRegisterForm.getPassword());
+//        user.setAddedDate(LocalDateTime.now());
+//
+//        userRepository.save(user);
     }
     public boolean loginUser(UserLoginForm userLoginForm){
         Optional<User> userEntity = userRepository.getUserEntityByEmail(userLoginForm.getEmail());

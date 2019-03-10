@@ -7,39 +7,47 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>New post</title>
     <meta name="description" content="New Post">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
-          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" th:href="@{/style.css}">
-
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <th:block th:replace="~{fragments/stylesAndScripts :: head}"></th:block>
 </head>
 
 <body>
 <h3>new post</h3>
 <div class="container-fluid no-gutters mt-4">
     <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form method="post" th:action="@{/addNewPost}">
+        <div class="col-md-6">
+            <form th:object="${newPostForm}" method="post" th:action="@{/addNewPost}">
                 <div class="form-group">
-                    <label for="title">Title:</label>
-                    <textarea class="form-control" rows="2" id="title"></textarea>
+                    <label>Title:</label>
+                    <input class="form-control" type="text" placeholder="title" th:field="*{title}">
+                    <span th:errors="*{title}"></span>
                 </div>
                 <div class="form-group">
-                    <label for="content">Content:</label>
-                    <textarea class="form-control" rows="5" id="content"
-                              placeholder="type your post here..."></textarea>
+                    <label>content:</label>
+                    <textarea class="form-control" rows="6" placeholder="type your post here..."
+                              th:field="*{content}"></textarea>
+                    <span th:errors="*{content}"></span>
                 </div>
+
+
+                <br>
                 <button type="submit" class="btn btn-primary">Add post</button>
-                </form>
-            </div>
+            </form>
+        </div>
     </div>
-<div class="row justify-content-end">
-    <div class="col-md-2">
-        <form method="get" th:action="@{/home}">
-            <input class="btn btn-primary btn-sm" type="submit" value="Go back to home page">
-        </form>
+    <div class="row justify-content-end">
+        <div class="col-md-2">
+            <form method="get" th:action="@{/home}">
+                <input class="btn btn-primary btn-sm mt-2" type="submit" value="Go back to home page">
+            </form>
+        </div>
     </div>
-</div>
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-2">
+            <form method="get" th:action="@{/index}">
+                <input class="btn btn-primary btn-sm" type="submit" value="Go back to main page">
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 

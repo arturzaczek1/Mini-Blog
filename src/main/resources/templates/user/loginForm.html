@@ -7,11 +7,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Login Form</title>
     <meta name="description" content="Login Form">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
-          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" th:href="@{/style.css}">
+    <th:block th:replace="~{fragments/stylesAndScripts :: head}"></th:block>
 
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 </head>
 
 <body>
@@ -39,7 +36,7 @@
         </div>
     </div>
     <div class="row justify-content-end">
-        <div class="col-md-2">
+        <div class="col-md-2 mt-3">
             <form method="get" th:action="@{/index}">
                 <input class="btn btn-primary btn-sm" type="submit" value="Go back to main page">
             </form>
