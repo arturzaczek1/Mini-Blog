@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>New post</title>
+    <meta name="description" content="New Post">
+    <!--<link rel="stylesheet" type="text/css" href="style.css" th:href="@{/style.css}">-->
+    <th:block th:replace="~{fragments/stylesAndScripts :: head}"></th:block>
+</head>
+
+<body>
+<th:block th:replace="~{fragments/loggedSign :: sign}"></th:block>
+<h3>Post List</h3>
+<div class="container-fluid no-gutters mt-3">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <div th:each="post : ${posts}" class="card text-white bg-secondary mb-3">
+                <div class="card-header"><a th:text="${post.title}" th:href="@{/post/{name},{qwe}(qwe=${post.id},name=${post.title})}">Tytuł posta</a></div>
+                <div class="card-body" th:text="${post.postBody}" th:href="@{/post(postId=${post.id})}">treść posta</div>
+                <span th:text="${#temporals.format(post.addedDate, 'yyyy-MM-dd HH:mm')}">2019-03-02 11:07:10</span>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-2">
+            <form method="get" th:action="@{/index}">
+                <input class="btn btn-primary btn-sm" type="submit" value="Go back to main page">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

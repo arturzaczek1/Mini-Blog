@@ -29,9 +29,4 @@ public class MainController {
         return "user/registerForm";
     }
 
-    @GetMapping("/home")
-    public String getHomePage() {
-        return "home";
-    }
-
 }

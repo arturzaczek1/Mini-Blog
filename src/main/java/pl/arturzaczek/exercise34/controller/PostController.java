@@ -2,14 +2,15 @@ package pl.arturzaczek.exercise34.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.arturzaczek.exercise34.entity.Post;
 import pl.arturzaczek.exercise34.form.PostNewForm;
 import pl.arturzaczek.exercise34.repository.PostRepository;
 import pl.arturzaczek.exercise34.services.PostService;
-import pl.arturzaczek.exercise34.services.UserContextService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -39,5 +40,15 @@ public class PostController {
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
-
+    @GetMapping ("/post/showAll")
+    public String showAllPosts (Model model){
+        List<Post> posts = getAllPosts();
+        model.addAttribute("posts", posts);
+        return "post/showPosts";
+    }
+    @GetMapping ("/post/add")
+    public String getAddNewPostForm (Model model){
+        model.addAttribute("newPostForm", new PostNewForm());
+        return "post/newPost";
+    }
 }

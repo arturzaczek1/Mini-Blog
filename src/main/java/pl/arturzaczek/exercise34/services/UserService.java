@@ -5,13 +5,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.arturzaczek.exercise34.entity.Role;
 import pl.arturzaczek.exercise34.entity.User;
-import pl.arturzaczek.exercise34.form.UserLoginForm;
 import pl.arturzaczek.exercise34.form.UserRegisterForm;
 import pl.arturzaczek.exercise34.repository.RoleRepository;
 import pl.arturzaczek.exercise34.repository.UserRepository;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+
 
 @Service
 public class UserService {
@@ -44,13 +43,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public boolean loginUser(UserLoginForm userLoginForm) {
-        Optional<User> userEntity = userRepository.getUserEntityByEmail(userLoginForm.getEmail());
-        if (userEntity.isPresent()) {
-            return true;
-        }
-        return false;
-    }
 
     private void getORCreateDefaultRole(User user) {
         Role role = roleRepository.findByRoleName(ROLE_USER)

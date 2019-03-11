@@ -33,16 +33,4 @@ public class UserController {
         userService.registerUser(userRegisterForm);
         return "redirect:/index";
     }
-//    @PostMapping("/loginUser")
-//    public String handleLoginForm(@ModelAttribute @Valid UserLoginForm userLoginForm, BindingResult bindingResult){
-//        if(bindingResult.hasErrors()){
-//            System.out.println("the form has errors");
-//            return "user/loginForm";
-//        }
-//        if(userService.loginUser(userLoginForm)){
-//            System.out.println("log in successful");
-//            return "redirect:/index";
-//        }
-//        return "user/loginForm";
-//    }
 }

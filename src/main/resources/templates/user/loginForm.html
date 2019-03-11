@@ -12,8 +12,8 @@
 </head>
 
 <body>
-<h1>Login Form</h1>
 <th:block th:replace="~{fragments/loggedSign :: sign}"></th:block>
+<h1>Login Form</h1>
 <div class="container-fluid no-gutters">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4 mt-3">
@@ -37,13 +37,6 @@
         <div class="col-md-2 mt-3">
             <form method="get" th:action="@{/index}">
                 <input class="btn btn-primary btn-sm" type="submit" value="Go back to main page">
-            </form>
-        </div>
-    </div>
-    <div class="row justify-content-end mt-5">
-        <div class="col-md-2">
-            <form method="get" th:action="@{/home}">
-                <input class="btn btn-primary btn-sm" type="submit" value="After Log in">
             </form>
         </div>
     </div>
